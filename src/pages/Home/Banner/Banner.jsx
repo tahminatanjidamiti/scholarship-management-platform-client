@@ -11,7 +11,7 @@ const Banner = () => {
                     autoPlay={true} 
                     infiniteLoop={true} 
                     showThumbs={false} 
-                    dynamicHeight={false} /* Turn off dynamicHeight */
+                    dynamicHeight={false}
                     emulateTouch={true}
                     interval={5000} 
                     transitionTime={500}

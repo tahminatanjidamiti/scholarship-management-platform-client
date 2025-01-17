@@ -5,6 +5,10 @@ import Main from "../Layout/Main";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import Registration from "../pages/Registration/Registration";
+import AllScholarship from "../pages/AllScholarship/AllScholarship";
+import DashBoard from "../pages/DashBoard/DashBoard";
+import ManageUsers from "../pages/DashBoard/ManageUsers";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -22,6 +26,20 @@ export const router = createBrowserRouter([
             {
                 path: "registration",
                 element: <Registration></Registration>,
+            },
+            {
+                path: "allScholarship",
+                element: <AllScholarship></AllScholarship>,
+            },
+            {
+                path: "dashboard",
+                element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
+                children: [
+                    {
+                        path: "manageUsers",
+                        element: <ManageUsers></ManageUsers>,
+                    },
+                ]
             },
         ]
     },

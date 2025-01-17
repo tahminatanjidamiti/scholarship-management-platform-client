@@ -8,5 +8,12 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-
+.active{
+  font-size: larger;
+  font-weight: bold; 
+  color: teal; 
+  text-shadow: 2px 2px 4px gray; 
+  transition: all 0.3s ease;
+  border-bottom: 2px solid teal;
+}
 
