@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
@@ -12,13 +13,13 @@ const ManageUsers = () => {
             const res = await axiosSecure.get('/users');
             return res.data;
         }
-    })
+    });
     const [filterRole, setFilterRole] = useState('');
 
     const handleRoleChange = async (userId, newRole) => {
         try {
             await axiosSecure.patch(`/users/${userId}`, { role: newRole });
-            refetch(); 
+            refetch();
         } catch (error) {
             console.error("Failed to update user role:", error);
         }
@@ -45,7 +46,7 @@ const ManageUsers = () => {
                                 icon: "success"
                             });
                         }
-                    })
+                    });
             }
         });
     };
@@ -74,17 +75,17 @@ const ManageUsers = () => {
                 <table className="table table-zebra w-full text-sm sm:text-base">
                     <thead>
                         <tr>
-                            <th>User Name</th>
-                            <th>User Email</th>
-                            <th>User Role</th>
-                            <th>Actions</th>
+                            <th className="hidden md:table-cell text-xs md:text-sm">User Name</th>
+                            <th className="hidden md:table-cell text-xs md:text-sm">User Email</th>
+                            <th className="text-xs md:text-sm">User Role</th>
+                            <th className="text-xs md:text-sm">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         {filteredUsers.map(user => (
                             <tr key={user._id}>
-                                <td>{user.name}</td>
-                                <td>{user.email}</td>
+                                <td className="hidden md:table-cell">{user.name}</td>
+                                <td className="hidden md:table-cell">{user.email}</td>
                                 <td>
                                     <select
                                         value={user.role}
@@ -112,4 +113,6 @@ const ManageUsers = () => {
         </div>
     );
 };
+
+
 export default ManageUsers;

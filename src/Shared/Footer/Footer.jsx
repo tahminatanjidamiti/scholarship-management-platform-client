@@ -3,8 +3,8 @@ import { IoIosArrowDropdownCircle } from "react-icons/io";
 const Footer = () => {
     return (
         <div className="bg-teal-400 bg-opacity-50 py-5">
-            <footer className="footer text-gray-700 px-10">
-                <aside>
+            <footer className="footer text-gray-700 px-1 md:px-10">
+                <aside className="pl-2">
                     <p className="text-4xl italic text-teal-600 font-bold">ScholarBridge</p>
                     <a className="link link-hover">About us</a>
                     <a className="link link-hover">Privacy Policy</a>
@@ -33,16 +33,16 @@ const Footer = () => {
 
                     </div>
                 </aside>
-                <nav>
+                <nav className="pl-2">
                 <h6 className="footer-title">Connected With Us!</h6>
-                    <div><p className='font-bold text-lg'>Get the latest news and offers</p> <h2 className='font-bold text-3xl'>Subscribe to our newsletter</h2></div>
+                    <div><p className='font-bold text-lg'>Get the latest news and offers</p> <h2 className='font-bold text-xl md:text-3xl'>Subscribe to our newsletter</h2></div>
                     <div className=" mt-2 join border border-purple-950">
-                    <input className="input input-bordered join-item h-[60px]" placeholder="Email" />
+                    <input className="input pr-0 md:pr-4 input-bordered join-item h-[60px]" placeholder="Email" />
                     <button className="btn h-[60px] join-item bg-teal-500 hover:bg-teal-800 hover:text-white">Subscribe</button>
                 </div>
                 </nav>
             </footer>
-            <div className="text-center pt-6">
+            <div className="w-full mx-auto text-center pt-6">
                 <p className="text-sm text-gray-600">©  {new Date().getFullYear()} ScholarBridge - All rights reserved.</p>
             </div>
         </div>
