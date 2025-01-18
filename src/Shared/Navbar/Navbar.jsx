@@ -9,6 +9,7 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
         <NavLink to="/allScholarship">All Scholarship</NavLink>
         <NavLink to="/dashboard">Dashboard</NavLink>
+        
     </>
     return (
         <div className='sticky top-0 z-50 backdrop-blur-sm bg-teal-400 bg-opacity-20 py-4'>

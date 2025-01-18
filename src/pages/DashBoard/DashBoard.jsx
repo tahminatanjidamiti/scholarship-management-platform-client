@@ -1,15 +1,15 @@
-import { FaHome, FaListAlt, FaUser, FaUsers } from "react-icons/fa";
-import { FcRating } from "react-icons/fc";
+import { FaHome, FaListAlt, FaShoppingCart, FaUser, FaUsers } from "react-icons/fa";
 import { GrUserAdmin } from "react-icons/gr";
 import { ImAddressBook } from "react-icons/im";
 import { MdOutlineLocalLibrary } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
 import { MdManageHistory } from "react-icons/md";
+import useAdmin from "../../Hooks/useAdmin";
 
 
 const DashBoard = () => {
     //TODO: get isAdmin value from the database
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
     return (
         <div className='flex'>
             {/* dashboard side bar */}
@@ -29,7 +29,7 @@ const DashBoard = () => {
                             </>
                             : <>
                                 <li><NavLink to="/"><FaUser></FaUser>User Profile</NavLink></li>
-                                <li><NavLink to="/"><img src="https://img.icons8.com/?size=64&id=w6FsxWMQQk0R&format=png" alt="Review!" />My Reviews</NavLink></li>
+                                <li><NavLink to="/"><img src="https://img.icons8.com/?size=20&id=w6FsxWMQQk0R&format=png" alt="Review!" />My Reviews</NavLink></li>
                                 <li><NavLink to="/"><FaShoppingCart></FaShoppingCart>My Application</NavLink></li>
                             </>
                     }
