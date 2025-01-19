@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useScholarship from "../../Hooks/useScholarship";
 
 
@@ -7,9 +8,10 @@ const AllScholarship = () => {
     return (
         <div className="container mx-auto p-4">
         <h1 className="text-center text-2xl font-bold mb-6">All Scholarships</h1>
-        <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {scholarships.map((scholarship, index) => {
                 const {
+                    _id,
                     universityName,
                     universityImage,
                     scholarshipCategory,
@@ -58,9 +60,10 @@ const AllScholarship = () => {
                             </p>
                             {/* Button */}
                             <div className="mt-auto">
-                                <button className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition">
-                                    Scholarship Details
-                                </button>
+                            <Link to={`scholarshipDetails/${_id}`}>
+                                        <button className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition">
+                                            Scholarship Details
+                                        </button></Link>
                             </div>
                         </div>
                     </div>
