@@ -23,6 +23,10 @@ const AddScholarship = () => {
         });
 
         if (res.data.success) {
+            const stipendValues = [2500, 1500, 3500, 4500];
+
+            // Select a random stipend value from the array
+            const randomStipend = stipendValues[Math.floor(Math.random() * stipendValues.length)];
             // Construct scholarship data
             const scholarshipData = {
                 scholarshipName: data.scholarshipName,
@@ -40,6 +44,8 @@ const AddScholarship = () => {
                 applicationDeadline: data.applicationDeadline,
                 scholarshipPostDate: data.scholarshipPostDate,
                 postedUserEmail: data.postedUserEmail,
+                scholarshipDescription: `${data.scholarshipName} to empower students globally with financial support for career development opportunities`,
+                stipend: randomStipend,
             };
 
             // Send scholarship data to the server
