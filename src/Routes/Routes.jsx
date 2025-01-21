@@ -11,6 +11,7 @@ import ManageUsers from "../pages/DashBoard/ManageUsers";
 import PrivateRoute from "./PrivateRoute";
 import AddScholarship from "../pages/DashBoard/PrivateDashboard/AddScholarship";
 import ScholarshipDetails from "../pages/ScholarshipDetails/ScholarshipDetails";
+import Payment from "../pages/Payment/Payment";
 
 export const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
             {
                 path: "allScholarship",
                 element: <AllScholarship></AllScholarship>,
+            },
+            {
+                path: "payment/:id",
+                element: <PrivateRoute><Payment></Payment></PrivateRoute>,
             },
             {
                 path: "dashboard",

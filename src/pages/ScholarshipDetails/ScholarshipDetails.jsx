@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Slider from "react-slick";
@@ -99,9 +99,9 @@ const ScholarshipDetails = () => {
                         <h3 className="font-semibold">Scholarship Description:</h3>
                         <p>{scholarship.scholarshipDescription}</p>
                     </div>
-                    <button className="btn btn-primary mt-6 block">
-                        Apply for Scholarship
-                    </button>
+                    <Link to={`/payment/${scholarship._id}`}><button className="btn btn-primary mt-6 block">
+                        Apply Scholarship
+                    </button></Link>
                 </div>
             </div>
 
