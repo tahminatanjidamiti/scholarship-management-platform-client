@@ -1,77 +1,157 @@
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useScholarship from "../../Hooks/useScholarship";
 
 
 const AllScholarship = () => {
-    const [scholarships] = useScholarship();
-    
+    const [filters, setFilters] = useState({
+        search: "",
+        minPrice: 0,
+        maxPrice: Infinity,
+        page: 1,
+        limit: 5,
+    });
+
+    const { scholarships, total, totalPages, currentPage, refetch } = useScholarship(filters);
+
+    const handleSearch = () => {
+        setFilters((prev) => ({ ...prev, page: 1 })); // Reset to the first page
+        refetch();  // Refetch scholarships based on updated filters
+    };
+
+    const handlePageChange = (newPage) => {
+        setFilters((prev) => ({ ...prev, page: newPage }));
+        refetch();  // Refetch scholarships on page change
+    };
+
     return (
         <div className="container mx-auto p-4">
-        <h1 className="text-center text-2xl font-bold mb-6">All Scholarships</h1>
-        <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-            {scholarships.map((scholarship, index) => {
-                const {
-                    _id,
-                    universityName,
-                    universityImage,
-                    scholarshipCategory,
-                    universityCity,
-                    universityCountry,
-                    applicationDeadline,
-                    subjectCategory,
-                    applicationFees,
-                    ratings,
-                } = scholarship;
+            <h1 className="text-center text-2xl font-bold mb-6">All Scholarships</h1>
 
-                const averageRating =
-                    ratings?.reduce((sum, rating) => sum + rating, 0) / ratings?.length;
-
-                return (
-                    <div
-                        key={index}
-                        className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow flex flex-col h-full"
+            {/* Search and Filter Controls */}
+            <div className="flex gap-4 mb-6">
+                <input
+                    type="text"
+                    placeholder="Search by name, university, or degree"
+                    className="border px-4 py-2 flex-1"
+                    value={filters.search}
+                    onChange={(e) => setFilters((prev) => ({ ...prev, search: e.target.value }))}
+                />
+                <input
+                    type="number"
+                    placeholder="Min Price"
+                    className="border px-4 py-2"
+                    value={filters.minPrice}
+                    onChange={(e) => setFilters((prev) => ({ ...prev, minPrice: e.target.value }))}
+                />
+                <input
+                    type="number"
+                    placeholder="Max Price"
+                    className="border px-4 py-2"
+                    value={filters.maxPrice}
+                    onChange={(e) => setFilters((prev) => ({ ...prev, maxPrice: e.target.value }))}
+                />
+                <button
+                    className="bg-blue-500 text-white px-6 py-2 rounded flex gap-2"
+                    onClick={handleSearch}
+                >
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
                     >
-                        {/* University Image */}
-                        <img
-                            src={universityImage}
-                            alt={`${universityName} logo`}
-                            className="w-full h-32 object-cover"
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                         />
-                        {/* Card Content */}
-                        <div className="p-4 flex flex-col flex-grow">
-                            <h2 className="text-xl font-semibold mb-2">{universityName}</h2>
-                            <p className="text-sm text-gray-600 mb-1">
-                                <strong>Category:</strong> {scholarshipCategory}
-                            </p>
-                            <p className="text-sm text-gray-600 mb-1">
-                                <strong>Location:</strong> {universityCity}, {universityCountry}
-                            </p>
-                            <p className="text-sm text-gray-600 mb-1">
-                                <strong>Deadline:</strong> {applicationDeadline}
-                            </p>
-                            <p className="text-sm text-gray-600 mb-1">
-                                <strong>Subject Category:</strong> {subjectCategory}
-                            </p>
-                            <p className="text-sm text-gray-600 mb-1">
-                                <strong>Application Fees:</strong> ${applicationFees}
-                            </p>
-                            <p className="text-sm text-gray-600 mb-3">
-                                <strong>Rating:</strong> {averageRating?.toFixed(1) || "N/A"} / 5
-                            </p>
-                            {/* Button */}
-                            <div className="mt-auto">
-                            <Link to={`scholarshipDetails/${_id}`}>
+                    </svg>
+                    Search
+                </button>
+            </div>
+
+            {/* Scholarships Grid */}
+            <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                {scholarships.length > 0 ? (
+                    scholarships.map((scholarship) => (
+                        <div
+                            key={scholarship._id}
+                            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow flex flex-col h-full"
+                        >
+                            <img
+                                src={scholarship.universityImage}
+                                alt={`${scholarship.universityName} logo`}
+                                className="w-full h-32 object-cover"
+                            />
+                            <div className="p-4 flex flex-col flex-grow">
+                                <h2 className="text-xl font-semibold mb-2">{scholarship.universityName}</h2>
+                                <p className="text-sm text-gray-600 mb-1">
+                                    <strong>Category:</strong> {scholarship?.scholarshipCategory}
+                                </p>
+                                <p className="text-sm text-gray-600 mb-1">
+                                    <strong>Subject Category:</strong> {scholarship?.subjectCategory}
+                                </p>
+                                <p className="text-sm text-gray-600 mb-1">
+                                    <strong>Degree:</strong> {scholarship?.degree}
+                                </p>
+                                <p className="text-sm text-gray-600 mb-1">
+                                    <strong>Location:</strong> {scholarship.universityCity}, {scholarship.universityCountry}
+                                </p>
+                                <p className="text-sm text-gray-600 mb-1">
+                                    <strong>Application Fees:</strong> ${scholarship.applicationFees}
+                                </p>
+                                <p className="text-sm text-gray-600 mb-1">
+                                    <strong>Deadline:</strong> {scholarship?.applicationDeadline}
+                                </p>
+                                <p className="text-sm text-gray-600 mb-3">
+                                    <strong>Rating:</strong>
+                                    {scholarship?.averageRating?.toFixed(1) || "N/A"} / 5
+                                </p>
+                                {/* Button */}
+                                <div className="mt-auto">
+                                    <Link to={`/scholarshipDetails/${scholarship._id}`}>
                                         <button className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition">
                                             Scholarship Details
-                                        </button></Link>
+                                        </button>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
+                    ))
+                ) : (
+                    <div className="text-center text-gray-500 col-span-full">
+                        <img
+                            src="/no-scholarships.png"
+                            alt="No Scholarships"
+                            className="w-1/2 mx-auto mb-4"
+                        />
+                        <p>No scholarships available. Try adjusting your filters.</p>
                     </div>
-                );
-            })}
+                )}
+            </div>
+
+            {/* Pagination Controls */}
+            {totalPages > 1 && (
+                <div className="flex justify-center mt-6">
+                    {[...Array(totalPages)].map((_, i) => (
+                        <button
+                            key={i}
+                            className={`px-4 py-2 mx-1 border ${currentPage === i + 1
+                                ? "bg-blue-500 text-white"
+                                : "bg-white text-gray-700"
+                                }`}
+                            onClick={() => handlePageChange(i + 1)}
+                        >
+                            {i + 1}
+                        </button>
+                    ))}
+                </div>
+            )}
         </div>
-    </div>
-);
+    );
 };
 
 export default AllScholarship;

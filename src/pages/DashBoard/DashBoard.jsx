@@ -11,6 +11,7 @@ import useAuth from "../../Hooks/useAuth";
 const DashBoard = () => {
     //TODO: get isAdmin value from the database
     const { user } = useAuth();
+    const email = user.email;
     const [isAdmin] = useAdmin();
     const [isModerator] = useModerator();
     // Render admin-specific menu items
@@ -106,7 +107,7 @@ const DashBoard = () => {
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/dashboard/myApplications">
+                <NavLink to={`/dashboard/myApplications/${email}`}>
                     <FaShoppingCart /> My Applications
                 </NavLink>
             </li>
@@ -117,7 +118,7 @@ const DashBoard = () => {
     return (
         <div className='flex'>
             {/* dashboard side bar */}
-            <div className='w-44 lg:w-64 min-h-screen bg-teal-300'>
+            <div className='w-[180px] lg:w-64 min-h-screen bg-teal-300'>
                 <ul className="menu space-y-2">
                     {isAdmin && renderAdminMenu()}
                     {!isAdmin && isModerator && renderModeratorMenu()}
@@ -125,7 +126,7 @@ const DashBoard = () => {
                 </ul>
             </div>
             {/* dashboard content */}
-            <div className='flex-1 p-1 lg:p-8'>
+            <div className='flex-1 p-1 px-1 py-2'>
                 <Outlet></Outlet>
             </div>
         </div>

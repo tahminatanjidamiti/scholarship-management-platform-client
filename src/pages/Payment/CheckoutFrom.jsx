@@ -201,8 +201,13 @@ const CheckoutFrom = () => {
                         scholarshipId,
                         currentDate: new Date().toLocaleString('en-US', options),
                         universityName: scholarship?.universityName,
+                        universityCity: scholarship?.universityCity,
+                        universityCountry: scholarship?.universityCountry,
                         scholarshipCategory: scholarship?.scholarshipCategory,
                         subjectCategory: scholarship?.subjectCategory,
+                        serviceCharge: scholarship?.serviceCharge,
+                        applicationFees: scholarship?.applicationFees,
+                        status: "Pending",
                     };
 
                     const res = await axiosSecure.post('/applications', applicationData);
@@ -300,6 +305,7 @@ const CheckoutFrom = () => {
                                 <label className="block">Address:</label>
                                 <input
                                     type="text"
+                                    placeholder="village, district, country"
                                     name="address"
                                     required
                                     onChange={handleInputChange}
@@ -366,6 +372,33 @@ const CheckoutFrom = () => {
                                     <option value="2 Years">2 Years</option>
                                     <option value="More than 2 Years">More than 2 Years</option>
                                 </select>
+                            </div>
+                            <div>
+                                <label className="block">University Name:</label>
+                                <input
+                                    type="text"
+                                    value={scholarship?.universityName || ''}
+                                    readOnly
+                                    className="border p-2 w-full bg-gray-100 cursor-not-allowed"
+                                />
+                            </div>
+                            <div>
+                                <label className="block">Scholarship Category:</label>
+                                <input
+                                    type="text"
+                                    value={scholarship?.scholarshipCategory || ''}
+                                    readOnly
+                                    className="border p-2 w-full bg-gray-100 cursor-not-allowed"
+                                />
+                            </div>
+                            <div>
+                                <label className="block">Subject Category:</label>
+                                <input
+                                    type="text"
+                                    value={scholarship?.subjectCategory || ''}
+                                    readOnly
+                                    className="border p-2 w-full bg-gray-100 cursor-not-allowed"
+                                />
                             </div>
                             <button
                                 type="submit"

@@ -30,11 +30,8 @@ const TopScholarship = () => {
                         applicationDeadline,
                         subjectCategory,
                         applicationFees,
-                        ratings,
+                        averageRating,
                     } = scholarship;
-
-                    const averageRating =
-                        ratings?.reduce((sum, rating) => sum + rating, 0) / ratings?.length;
 
                     return (
                         <div
@@ -66,11 +63,11 @@ const TopScholarship = () => {
                                     <strong>Application Fees:</strong> ${applicationFees}
                                 </p>
                                 <p className="text-sm text-gray-600 mb-3">
-                                    <strong>Rating:</strong> {averageRating?.toFixed(1) || "N/A"} / 5
+                                    <strong>Rating:</strong> {averageRating || "N/A"} / 5
                                 </p>
                                 {/* Button */}
                                 <div className="mt-auto">
-                                    <Link to={`scholarshipDetails/${_id}`}>
+                                    <Link to={`/scholarshipDetails/${_id}`}>
                                         <button className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition">
                                             Scholarship Details
                                         </button></Link>

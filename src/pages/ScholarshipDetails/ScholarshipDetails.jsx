@@ -22,7 +22,7 @@ const ScholarshipDetails = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
         axiosSecure
-            .get(`/scholarships-details/${id}/reviews`)
+            .get(`reviews/${id}`)
             .then((response) => setReviews(response.data))
             .catch((error) => {
                 console.error("Error fetching reviews:", error);
@@ -112,23 +112,23 @@ const ScholarshipDetails = () => {
                         {reviews.map((review) => (
                             <div
                                 key={review._id}
-                                className="bg-gradient-to-r from-teal-500 via-pink-300 to-purple-300 text-white p-6 rounded shadow-lg text-center"
+                                className="bg-gradient-to-r from-teal-500 via-pink-300 to-purple-300 p-6 rounded shadow-lg text-center"
                             >
-                                {review.reviewerImage && (
+                                {review.userImage && (
                                     <img
-                                        src={review.photo}
-                                        alt={review.name}
+                                        src={review.userImage}
+                                        alt={review.userName}
                                         className="w-16 h-16 rounded-full mx-auto mb-4"
                                     />
                                 )}
-                                <h3 className="text-lg font-semibold">{review.name}</h3>
-                                <p className="text-sm">
-                                    {new Date(review?.reviewDate).toLocaleDateString()}
-                                </p>
                                 <p className="text-yellow-400 font-bold">
                                     Rating: {review.rating} / 5
                                 </p>
-                                <p className="italic">"{review?.comments}"</p>
+                                <h3 className="text-lg font-semibold">{review.userName}</h3>
+                                <p className="text-sm text-teal-500">
+                                    {review?.reviewDate}
+                                </p>
+                                <p className="italic text-xl text-blue">"{review?.comment}"</p>
                             </div>
                         ))}
                     </Slider>
