@@ -28,8 +28,8 @@ const DashBoard = () => {
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/dashboard/manageScholarship">
-                    <MdManageHistory /> Manage Scholarship
+                <NavLink to="/dashboard/manageScholarships">
+                    <MdManageHistory /> Manage Scholarships
                 </NavLink>
             </li>
             <li>
@@ -68,8 +68,8 @@ const DashBoard = () => {
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/dashboard/manageScholarship">
-                    <MdManageHistory /> Manage Scholarship
+                <NavLink to="/dashboard/manageScholarships">
+                    <MdManageHistory /> Manage Scholarships
                 </NavLink>
             </li>
             <li>
