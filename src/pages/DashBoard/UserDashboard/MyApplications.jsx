@@ -225,7 +225,7 @@ const MyApplications = () => {
                                         {application.status}
                                     </span>
                                 </td>
-                                <td>{application.feedback || 'N/A'}</td>
+                                <td>{application.feedback}</td>
                                 <td className="hidden md:flex items-center space-x-2">
                                     <div className="dropdown dropdown-left dropdown-end">
                                         <div tabIndex={0} role="button" className="btn m-2">Buttons</div>

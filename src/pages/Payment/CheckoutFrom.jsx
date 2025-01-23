@@ -200,6 +200,7 @@ const CheckoutFrom = () => {
                         userId,
                         scholarshipId,
                         currentDate: new Date().toLocaleString('en-US', options),
+                        scholarshipDeadline: scholarship?.scholarshipDeadline,
                         universityName: scholarship?.universityName,
                         universityCity: scholarship?.universityCity,
                         universityCountry: scholarship?.universityCountry,
@@ -209,6 +210,7 @@ const CheckoutFrom = () => {
                         serviceCharge: scholarship?.serviceCharge,
                         applicationFees: scholarship?.applicationFees,
                         status: "Pending",
+                        feedback: "N/A"
                     };
 
                     const res = await axiosSecure.post('/applications', applicationData);

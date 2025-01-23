@@ -15,6 +15,7 @@ import Payment from "../pages/Payment/Payment";
 import MyApplications from "../pages/DashBoard/UserDashboard/MyApplications";
 import MyReviews from "../pages/DashBoard/UserDashboard/MyReviews";
 import ManageScholarships from "../pages/DashBoard/PrivateDashboard/ManageScholarships";
+import ManageApplications from "../pages/DashBoard/PrivateDashboard/ManageApplications";
 
 export const router = createBrowserRouter([
     {
@@ -64,6 +65,10 @@ export const router = createBrowserRouter([
                     {
                         path: "manageScholarships",
                         element: <ManageScholarships></ManageScholarships>,
+                    },
+                    {
+                        path: "manageApplications",
+                        element: <ManageApplications></ManageApplications>,
                     },
                     {
                         path: "manageUsers",
