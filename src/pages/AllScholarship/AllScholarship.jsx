@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useScholarship from "../../Hooks/useScholarship";
 
-
 const AllScholarship = () => {
     const [filters, setFilters] = useState({
         search: "",
@@ -14,14 +13,13 @@ const AllScholarship = () => {
 
     const { scholarships, total, totalPages, currentPage, refetch } = useScholarship(filters);
 
-    const handleSearch = () => {
-        setFilters((prev) => ({ ...prev, page: 1 })); // Reset to the first page
-        refetch();  // Refetch scholarships based on updated filters
-    };
+
+    useEffect(() => {
+        refetch();
+    }, [filters, refetch]);
 
     const handlePageChange = (newPage) => {
         setFilters((prev) => ({ ...prev, page: newPage }));
-        refetch();  // Refetch scholarships on page change
     };
 
     return (
@@ -35,42 +33,57 @@ const AllScholarship = () => {
                     placeholder="Search by name, university, or degree"
                     className="border px-4 py-2 flex-1"
                     value={filters.search}
-                    onChange={(e) => setFilters((prev) => ({ ...prev, search: e.target.value }))}
+                    onChange={(e) =>
+                        setFilters((prev) => ({ ...prev, search: e.target.value, page: 1 }))
+                    }
                 />
                 <input
                     type="number"
                     placeholder="Min Price"
                     className="border px-4 py-2"
                     value={filters.minPrice}
-                    onChange={(e) => setFilters((prev) => ({ ...prev, minPrice: e.target.value }))}
+                    onChange={(e) =>
+                        setFilters((prev) => ({ ...prev, minPrice: Number(e.target.value) || 0 }))
+                    }
                 />
                 <input
                     type="number"
                     placeholder="Max Price"
                     className="border px-4 py-2"
-                    value={filters.maxPrice}
-                    onChange={(e) => setFilters((prev) => ({ ...prev, maxPrice: e.target.value }))}
+                    value={filters.maxPrice === Infinity ? "" : filters.maxPrice}
+                    onChange={(e) =>
+                        setFilters((prev) => ({
+                            ...prev,
+                            maxPrice: Number(e.target.value) || Infinity,
+                        }))
+                    }
                 />
-                <button
-                    className="bg-blue-500 text-white px-6 py-2 rounded flex gap-2"
-                    onClick={handleSearch}
-                >
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 mt-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                {/* <div className="border px-4 py-2">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-5 w-5"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
+                        stroke="currentColor">
                         <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             strokeWidth="2"
-                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                        />
+                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
-                    Search
-                </button>
+                </div> */}
             </div>
 
             {/* Scholarships Grid */}
@@ -140,8 +153,8 @@ const AllScholarship = () => {
                         <button
                             key={i}
                             className={`px-4 py-2 mx-1 border ${currentPage === i + 1
-                                ? "bg-blue-500 text-white"
-                                : "bg-white text-gray-700"
+                                    ? "bg-blue-500 text-white"
+                                    : "bg-white text-gray-700"
                                 }`}
                             onClick={() => handlePageChange(i + 1)}
                         >
@@ -153,5 +166,4 @@ const AllScholarship = () => {
         </div>
     );
 };
-
 export default AllScholarship;

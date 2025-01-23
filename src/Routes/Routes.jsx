@@ -13,6 +13,7 @@ import AddScholarship from "../pages/DashBoard/PrivateDashboard/AddScholarship";
 import ScholarshipDetails from "../pages/ScholarshipDetails/ScholarshipDetails";
 import Payment from "../pages/Payment/Payment";
 import MyApplications from "../pages/DashBoard/UserDashboard/MyApplications";
+import MyReviews from "../pages/DashBoard/UserDashboard/MyReviews";
 
 export const router = createBrowserRouter([
     {
@@ -48,8 +49,12 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
                 children: [
                     {
+                        path: "MyReviews/:email",
+                        element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>,
+                    },
+                    {
                         path: "myApplications/:email",
-                        element: <MyApplications></MyApplications>,
+                        element: <PrivateRoute><MyApplications></MyApplications></PrivateRoute>,
                     },
                     {
                         path: "addScholarship",

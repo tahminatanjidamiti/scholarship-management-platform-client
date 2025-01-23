@@ -6,6 +6,9 @@ import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
+import { TbListDetails } from 'react-icons/tb';
+import { FaEdit } from 'react-icons/fa';
+import { MdCancel } from 'react-icons/md';
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -41,7 +44,7 @@ const MyApplications = () => {
             return res.data;
         },
     });
-
+    
     const handleEditOpen = (application) => {
         setSelectedApplication(application);
         setEditForm({
@@ -228,8 +231,8 @@ const MyApplications = () => {
                                         <div tabIndex={0} role="button" className="btn m-2">Buttons</div>
                                         <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-32 p-2 shadow space-y-1">
                                             <Link to={`/scholarshipDetails/${application._id}`}>
-                                                <button className="bg-blue-500 text-white px-3 py-1 rounded-md w-full">
-                                                    Details
+                                                <button className="bg-blue-500 text-white px-3 py-1 rounded-md w-full mx-auto text-2xl">
+                                                    <TbListDetails className='mx-auto'></TbListDetails>
                                                 </button>
                                             </Link>
                                             <button
@@ -238,15 +241,15 @@ const MyApplications = () => {
                                                         ? handleEditOpen(application)
                                                         : Swal.fire('Cannot Edit', 'The application cannot be edited.', 'error')
                                                 }
-                                                className="bg-green-500 text-white px-3 py-1 rounded-md"
+                                                className="bg-green-500 text-white px-3 py-1 rounded-md text-2xl"
                                             >
-                                                Edit
+                                                <FaEdit className='mx-auto'></FaEdit>
                                             </button>
                                             <button
                                                 onClick={() => handleCancel(application._id)}
-                                                className="bg-red-500 text-white px-3 py-1 rounded-md"
+                                                className="bg-red-500 text-white px-3 py-1 rounded-md text-2xl"
                                             >
-                                                Cancel
+                                               <MdCancel className='mx-auto'></MdCancel>
                                             </button>
 
                                         </ul>
@@ -254,9 +257,9 @@ const MyApplications = () => {
                                 </td>
                                 <td className="p-1"><button
                                     onClick={() => openReviewModal(application)}
-                                    className="bg-yellow-500 text-white px-3 py-1 rounded-md"
+                                    className="bg-amber-500 text-white px-3 py-1 rounded-md"
                                 >
-                                    Add Review
+                                    <img src="https://img.icons8.com/?size=30&id=101113&format=png" alt="Add review!" />
                                 </button></td>
                             </tr>
                         ))}

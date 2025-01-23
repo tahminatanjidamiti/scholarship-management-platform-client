@@ -204,6 +204,7 @@ const CheckoutFrom = () => {
                         universityCity: scholarship?.universityCity,
                         universityCountry: scholarship?.universityCountry,
                         scholarshipCategory: scholarship?.scholarshipCategory,
+                        scholarshipName: scholarship?.scholarshipName,
                         subjectCategory: scholarship?.subjectCategory,
                         serviceCharge: scholarship?.serviceCharge,
                         applicationFees: scholarship?.applicationFees,

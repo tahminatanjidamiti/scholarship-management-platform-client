@@ -98,7 +98,7 @@ const DashBoard = () => {
                 </NavLink>
             </li>
             <li>
-                <NavLink to="/dashboard/myReviews">
+                <NavLink to={`/dashboard/MyReviews/${email}`}>
                     <img
                         src="https://img.icons8.com/?size=20&id=w6FsxWMQQk0R&format=png"
                         alt="Review!"
