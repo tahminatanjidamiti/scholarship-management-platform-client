@@ -18,7 +18,7 @@ const DashBoard = () => {
     const renderAdminMenu = () => (
         <>
             <li>
-                <NavLink to="/dashboard">
+                <NavLink to="/dashboard/userProfile">
                     <GrUserAdmin /> Admin Profile
                 </NavLink>
             </li>
@@ -58,7 +58,7 @@ const DashBoard = () => {
     const renderModeratorMenu = () => (
         <>
             <li>
-                <NavLink to="/dashboard">
+                <NavLink to="/dashboard/userProfile">
                     <FaUserCog /> Moderator Profile
                 </NavLink>
             </li>
@@ -93,7 +93,7 @@ const DashBoard = () => {
     const renderUserMenu = () => (
         <>
             <li>
-                <NavLink to="/dashboard">
+                <NavLink to="/dashboard/userProfile">
                     <FaUser /> User Profile
                 </NavLink>
             </li>
@@ -126,7 +126,9 @@ const DashBoard = () => {
                 </ul>
             </div>
             {/* dashboard content */}
-            <div className='flex-1 p-1 px-1 py-2'>
+            <div className='flex-1 px-3 py-2'>
+                <h2 className="mt-6  w-11/12 mx-auto font-bold text-xl lg:text-4xl text-gray-100">Dashboard</h2>
+                <p className="text-teal-100 w-11/12 mx-auto font-bold">Take a look at the sidebar to simplify your experience!</p>
                 <Outlet></Outlet>
             </div>
         </div>

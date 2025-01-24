@@ -19,11 +19,13 @@ import ManageApplications from "../pages/DashBoard/PrivateDashboard/ManageApplic
 import AdminRoute from "./AdminRoute";
 import ManageReviews from "../pages/DashBoard/PrivateDashboard/ManageReviews";
 import UserProfile from "../pages/DashBoard/UserProfile";
+import ErrorPage from "../pages/ErrorPage";
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
@@ -54,7 +56,7 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
                 children: [
                     {
-                        index: true,
+                        path: "userProfile",
                         element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute>,
                     },
                     {

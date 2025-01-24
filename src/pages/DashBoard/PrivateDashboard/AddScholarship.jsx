@@ -70,7 +70,7 @@ const AddScholarship = () => {
             <h2 className="text-xl md:text-3xl font-semibold mb-4 text-center">Add Scholarship</h2>
             <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="flex flex-col md:flex-row gap-2 md:gap-6">
+                    <div className="flex flex-col md:flex-row gap-2 md:gap-4">
                         {/* Scholarship Name */}
                         <div className="form-control w-full md:my-6">
                             <label className="label">
