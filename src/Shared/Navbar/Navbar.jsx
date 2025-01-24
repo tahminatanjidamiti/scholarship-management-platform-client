@@ -1,15 +1,28 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import useAdmin from "../../Hooks/useAdmin";
+import useModerator from "../../Hooks/useModerator";
+import useRole from '../../Hooks/useRole';
 
 
 const Navbar = () => {
     const {user, logOut} = useContext(AuthContext);
+    const [isRole] = useRole();
+    const [isAdmin] = useAdmin();
+    const [isModerator] = useModerator();
     const links = <>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/allScholarship">All Scholarship</NavLink>
-        <NavLink to="/dashboard">Dashboard</NavLink>
-        
+        {
+            user && isAdmin && <NavLink to="/dashboard/userProfile">Admin Dashboard</NavLink>
+        }
+        {
+            user && isModerator && <NavLink to="/dashboard/userProfile">Moderator Dashboard</NavLink>
+        }
+        {
+            user && !isRole && <NavLink to="/dashboard/userProfile">User DashBoard</NavLink>
+        }
     </>
     return (
         <div className='sticky top-0 z-50 backdrop-blur-sm bg-teal-400 bg-opacity-20 py-4'>

@@ -6,6 +6,7 @@ import { MdManageHistory } from "react-icons/md";
 import useAdmin from "../../Hooks/useAdmin";
 import useModerator from "../../Hooks/useModerator";
 import useAuth from "../../Hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 
 const DashBoard = () => {
@@ -117,6 +118,9 @@ const DashBoard = () => {
 
     return (
         <div className='flex'>
+            <Helmet>
+                <title>ScholarBridge | Dashboard</title>
+            </Helmet>
             {/* dashboard side bar */}
             <div className='w-[180px] lg:w-64 min-h-screen bg-teal-300'>
                 <ul className="menu space-y-2">

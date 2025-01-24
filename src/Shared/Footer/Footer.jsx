@@ -9,7 +9,7 @@ const Footer = () => {
                     <a className="link link-hover">About us</a>
                     <a className="link link-hover">Privacy Policy</a>
                     <a className="link link-hover">Work with Us</a>
-                    <a className="link link-hover">FAQ</a>
+                    <a className="link link-hover">Cookies</a>
                     <div className="flex items-center justify-center gap-2">
                     <h6 className="footer-title">Follow Us!</h6>
                     <p className="w-4 h-4 bg-teal-600 inline-flex rounded-full text-white justify-center items-center"><IoIosArrowDropdownCircle /></p>
@@ -34,6 +34,7 @@ const Footer = () => {
                     </div>
                 </aside>
                 <nav className="pl-2">
+                <img className="w-32 h-20 rounded-lg" src="https://i.ibb.co.com/7ChChqg/131b03f2-f60f-46fd-b1de-fcf1611a421e.webp" alt="" />
                 <h6 className="footer-title">Connected With Us!</h6>
                     <div><p className='font-bold text-lg'>Get the latest news and offers</p> <h2 className='font-bold text-xl md:text-3xl'>Subscribe to our newsletter</h2></div>
                     <div className=" mt-2 join border border-purple-950">

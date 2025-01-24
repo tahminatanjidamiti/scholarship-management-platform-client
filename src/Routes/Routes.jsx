@@ -20,6 +20,7 @@ import AdminRoute from "./AdminRoute";
 import ManageReviews from "../pages/DashBoard/PrivateDashboard/ManageReviews";
 import UserProfile from "../pages/DashBoard/UserProfile";
 import ErrorPage from "../pages/ErrorPage";
+import RoleRoute from "./RoleRoute";
 
 export const router = createBrowserRouter([
     {
@@ -69,19 +70,19 @@ export const router = createBrowserRouter([
                     },
                     {
                         path: "addScholarship",
-                        element: <AddScholarship></AddScholarship>,
+                        element: <PrivateRoute><RoleRoute><AddScholarship></AddScholarship></RoleRoute></PrivateRoute>,
                     },
                     {
                         path: "manageScholarships",
-                        element: <ManageScholarships></ManageScholarships>,
+                        element: <PrivateRoute><RoleRoute><ManageScholarships></ManageScholarships></RoleRoute></PrivateRoute>,
                     },
                     {
                         path: "manageApplications",
-                        element: <ManageApplications></ManageApplications>,
+                        element: <PrivateRoute><RoleRoute><ManageApplications></ManageApplications></RoleRoute></PrivateRoute>,
                     },
                     {
                         path: "manageReviews",
-                        element: <ManageReviews></ManageReviews>,
+                        element: <PrivateRoute><RoleRoute><ManageReviews></ManageReviews></RoleRoute></PrivateRoute>,
                     },
                     {
                         path: "manageUsers",

@@ -78,7 +78,7 @@ const TopScholarship = () => {
                     );
                 })}
             </div>
-            <Link to="allScholarship">
+            <Link to="/allScholarship">
                 <button className="w-3/12 mx-auto flex justify-center items-center my-5 bg-teal-500 text-white py-2 rounded-md hover:bg-teal-600 transition">
                     All Scholarship
                 </button></Link>
