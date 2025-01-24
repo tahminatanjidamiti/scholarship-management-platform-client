@@ -166,6 +166,7 @@ const MyApplications = () => {
             ...review,
             scholarshipName: selectedApplication.scholarshipName,
             universityName: selectedApplication.universityName,
+            subjectCategory: selectedApplication.subjectCategory,
             universityId: selectedApplication.scholarshipId,
             userName: user.displayName,
             userEmail: user.email,

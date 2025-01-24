@@ -16,6 +16,9 @@ import MyApplications from "../pages/DashBoard/UserDashboard/MyApplications";
 import MyReviews from "../pages/DashBoard/UserDashboard/MyReviews";
 import ManageScholarships from "../pages/DashBoard/PrivateDashboard/ManageScholarships";
 import ManageApplications from "../pages/DashBoard/PrivateDashboard/ManageApplications";
+import AdminRoute from "./AdminRoute";
+import ManageReviews from "../pages/DashBoard/PrivateDashboard/ManageReviews";
+import UserProfile from "../pages/DashBoard/UserProfile";
 
 export const router = createBrowserRouter([
     {
@@ -51,6 +54,10 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>,
                 children: [
                     {
+                        index: true,
+                        element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute>,
+                    },
+                    {
                         path: "MyReviews/:email",
                         element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>,
                     },
@@ -71,8 +78,12 @@ export const router = createBrowserRouter([
                         element: <ManageApplications></ManageApplications>,
                     },
                     {
+                        path: "manageReviews",
+                        element: <ManageReviews></ManageReviews>,
+                    },
+                    {
                         path: "manageUsers",
-                        element: <ManageUsers></ManageUsers>,
+                        element: <PrivateRoute><AdminRoute><ManageUsers></ManageUsers></AdminRoute></PrivateRoute>,
                     },
                 ]
             },

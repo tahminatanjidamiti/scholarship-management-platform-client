@@ -8,7 +8,7 @@ const AllScholarship = () => {
         minPrice: 0,
         maxPrice: Infinity,
         page: 1,
-        limit: 5,
+        limit: 4,
     });
 
     const { scholarships, total, totalPages, currentPage, refetch } = useScholarship(filters);

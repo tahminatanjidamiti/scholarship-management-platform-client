@@ -18,7 +18,7 @@ const DashBoard = () => {
     const renderAdminMenu = () => (
         <>
             <li>
-                <NavLink to="/dashboard/adminProfile">
+                <NavLink to="/dashboard">
                     <GrUserAdmin /> Admin Profile
                 </NavLink>
             </li>
@@ -58,7 +58,7 @@ const DashBoard = () => {
     const renderModeratorMenu = () => (
         <>
             <li>
-                <NavLink to="/dashboard/moderatorProfile">
+                <NavLink to="/dashboard">
                     <FaUserCog /> Moderator Profile
                 </NavLink>
             </li>
@@ -93,7 +93,7 @@ const DashBoard = () => {
     const renderUserMenu = () => (
         <>
             <li>
-                <NavLink to="/dashboard/userProfile">
+                <NavLink to="/dashboard">
                     <FaUser /> User Profile
                 </NavLink>
             </li>

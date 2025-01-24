@@ -13,7 +13,7 @@ const useScholarship = (filters) => {
         },
     });
 
-    const { scholarships = [], total = 0, totalPages = 1, currentPage = 1 } = data;
+    const { scholarships = [], total = 0, totalPages = 4, currentPage = 1 } = data;
 
     return { scholarships, total, totalPages, currentPage, refetch };
 };

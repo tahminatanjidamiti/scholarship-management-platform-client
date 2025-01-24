@@ -55,8 +55,8 @@ const ManageApplications = () => {
     };
 
     return (
-        <div className="p-4">
-            <h1 className="text-2xl font-bold mb-4">Manage Applications: {applications.length}</h1>
+        <div className="p-1 md:p-4">
+            <h1 className="text-xl lg:text-2xl font-bold mb-4">Manage Applications</h1>
 
 
             <div className="flex justify-center mb-4">
@@ -74,13 +74,13 @@ const ManageApplications = () => {
             <table className="min-w-full bg-white border">
                 <thead>
                     <tr className="bg-gray-200 text-left">
-                        <th className="px-4 py-2">Scholarship Name</th>
-                        <th className="px-4 py-2">Applicant Name</th>
-                        <th className="px-4 py-2">Photo</th>
-                        <th className="px-4 py-2">SSC Result</th>
-                        <th className="px-4 py-2">HSC Result</th>
-                        <th className="px-4 py-2">Applied Date</th>
-                        <th className="px-4 py-2">Scholarship Deadline</th>
+                        <th className="hidden md:table-cell px-4 py-2">Scholarship Name</th>
+                        <th className="hidden lg:table-cell px-4 py-2">Applicant Name</th>
+                        <th className="hidden lg:table-cell px-4 py-2">Photo</th>
+                        <th className="hidden lg:table-cell px-4 py-2">SSC Result</th>
+                        <th className="hidden lg:table-cell px-4 py-2">HSC Result</th>
+                        <th className="hidden lg:table-cell px-4 py-2">Applied Date</th>
+                        <th className="hidden lg:table-cell px-4 py-2">Scholarship Deadline</th>
                         <th className="px-4 py-2">Status</th>
                         <th className="px-4 py-2">Actions</th>
                     </tr>
@@ -88,24 +88,24 @@ const ManageApplications = () => {
                 <tbody>
                     {sortedApplications().map((app) => (
                         <tr key={app._id} className="border-t">
-                            <td className="px-4 py-2">{app.scholarshipName}</td>
-                            <td className="px-4 py-2">{app.userName}</td>
-                            <td className="px-4 py-2">
+                            <td className="hidden md:table-cell px-4 py-2">{app.scholarshipName}</td>
+                            <td className="hidden lg:table-cell px-4 py-2">{app.userName}</td>
+                            <td className="hidden lg:table-cell px-4 py-2">
                                 <img
                                     src={app.photo}
                                     alt={app.userName}
                                     className="w-10 h-10 rounded-full"
                                 />
                             </td>
-                            <td className="px-4 py-2">{app.sscResult}</td>
-                            <td className="px-4 py-2">{app.hscResult}</td>
-                            <td className="px-4 py-2">{app.currentDate}</td>
-                            <td className="px-4 py-2">{app.applicationDeadline}</td>
-                            <td className="px-4 py-2">
+                            <td className="hidden lg:table-cell px-4 py-2">{app.sscResult}</td>
+                            <td className="hidden lg:table-cell px-4 py-2">{app.hscResult}</td>
+                            <td className="hidden lg:table-cell px-4 py-2">{app.currentDate}</td>
+                            <td className="hidden lg:table-cell px-4 py-2">{app.applicationDeadline}</td>
+                            <td className="px-1 md:px-4 py-2">
                                 <select
                                     value={app.status}
                                     onChange={(e) => handleStatusChange(app._id, e.target.value)}
-                                    className="border px-2 py-1"
+                                    className="border px-0 md:px-2 py-1"
                                 >
                                     <option value="Pending">Pending</option>
                                     <option value="Processing">Processing</option>

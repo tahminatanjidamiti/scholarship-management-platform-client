@@ -200,7 +200,7 @@ const CheckoutFrom = () => {
                         userId,
                         scholarshipId,
                         currentDate: new Date().toLocaleString('en-US', options),
-                        scholarshipDeadline: scholarship?.scholarshipDeadline,
+                        applicationDeadline: scholarship?.scholarshipDeadline,
                         universityName: scholarship?.universityName,
                         universityCity: scholarship?.universityCity,
                         universityCountry: scholarship?.universityCountry,
