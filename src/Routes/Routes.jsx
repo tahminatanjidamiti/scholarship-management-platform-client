@@ -70,23 +70,23 @@ export const router = createBrowserRouter([
                     },
                     {
                         path: "addScholarship",
-                        element: <PrivateRoute><RoleRoute><AddScholarship></AddScholarship></RoleRoute></PrivateRoute>,
+                        element: <RoleRoute><AddScholarship></AddScholarship></RoleRoute>,
                     },
                     {
                         path: "manageScholarships",
-                        element: <PrivateRoute><RoleRoute><ManageScholarships></ManageScholarships></RoleRoute></PrivateRoute>,
+                        element: <RoleRoute><ManageScholarships></ManageScholarships></RoleRoute>,
                     },
                     {
                         path: "manageApplications",
-                        element: <PrivateRoute><RoleRoute><ManageApplications></ManageApplications></RoleRoute></PrivateRoute>,
+                        element: <RoleRoute><ManageApplications></ManageApplications></RoleRoute>,
                     },
                     {
                         path: "manageReviews",
-                        element: <PrivateRoute><RoleRoute><ManageReviews></ManageReviews></RoleRoute></PrivateRoute>,
+                        element: <RoleRoute><ManageReviews></ManageReviews></RoleRoute>,
                     },
                     {
                         path: "manageUsers",
-                        element: <PrivateRoute><AdminRoute><ManageUsers></ManageUsers></AdminRoute></PrivateRoute>,
+                        element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>,
                     },
                 ]
             },

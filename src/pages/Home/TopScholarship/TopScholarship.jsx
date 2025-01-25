@@ -2,14 +2,17 @@ import React from 'react';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../Hooks/useAuth';
+
 
 const TopScholarship = () => {
-
+ const {loading} = useAuth();
     const axiosPublic = useAxiosPublic();
     const { data: scholarships = [] } = useQuery({
         queryKey: ['scholarships-top'],
+        enabled: !loading,
         queryFn: async () => {
-            const res = await axiosPublic.get('/scholarships/top');
+            const res = await axiosPublic.get('/scholarship/top');
             return res.data;
         }
     })

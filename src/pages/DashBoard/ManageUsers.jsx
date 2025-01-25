@@ -4,11 +4,16 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import { FaTrash } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import useAuth from '../../Hooks/useAuth';
+import useAdmin from '../../Hooks/useAdmin';
 
 const ManageUsers = () => {
+    const {loading} = useAuth();
+    const [isAdmin, isAdminLoading] = useAdmin();
     const axiosSecure = useAxiosSecure();
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
+        enabled: isAdmin && !isAdminLoading || !loading,
         queryFn: async () => {
             const res = await axiosSecure.get('/users');
             return res.data;
@@ -82,7 +87,8 @@ const ManageUsers = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {filteredUsers.map(user => (
+                        
+                        {Array.isArray(filteredUsers) && filteredUsers?.map(user => (
                             <tr key={user._id}>
                                 <td className="hidden md:table-cell">{user.name}</td>
                                 <td className="hidden md:table-cell">{user.email}</td>

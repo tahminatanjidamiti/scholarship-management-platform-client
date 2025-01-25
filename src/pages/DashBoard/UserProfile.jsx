@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../Hooks/useAuth';
 import useAdmin from '../../Hooks/useAdmin';
 import {  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import useModerator from '../../Hooks/useModerator';
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 
@@ -26,9 +27,10 @@ const UserProfile = () => {
     const { user, loading } = useAuth();
     const axiosSecure = useAxiosSecure();
     const [isAdmin, isAdminLoading] = useAdmin();
+    const [isModerator, isModeratorLoading] = useModerator();
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
-        enabled: !loading,
+        enabled: !loading || !isAdminLoading || !isModeratorLoading,
         queryFn: async () => {
             const res = await axiosSecure.get(`/user/${user.email}`);
             return res.data;
@@ -37,7 +39,7 @@ const UserProfile = () => {
 
     const { data: chartData = {} } = useQuery({
         queryKey: ['admin-dashboard'],
-        enabled: !isAdminLoading,
+        enabled: isAdmin && !isAdminLoading,
         queryFn: async () => {
             const res = await axiosSecure.get('/admin-dashboard');
             return res.data;
@@ -80,7 +82,7 @@ const UserProfile = () => {
                 </div>
             </div>
             {
-                isAdmin && (
+                isAdmin && users.role === 'admin' && (
                     <div className="mt-10 bg-white shadow-lg rounded-lg">
                     {barChartData.length > 0 ? (
                         <div style={{ width: '100%', height: 300 }}>

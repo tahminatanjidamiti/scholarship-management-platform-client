@@ -8,20 +8,21 @@ import useRole from '../../Hooks/useRole';
 
 const Navbar = () => {
     const {user, logOut} = useContext(AuthContext);
-    const [isRole] = useRole();
+
     const [isAdmin] = useAdmin();
     const [isModerator] = useModerator();
     const links = <>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/allScholarship">All Scholarship</NavLink>
+
         {
-            user && isAdmin && <NavLink to="/dashboard/userProfile">Admin Dashboard</NavLink>
+            isAdmin && <NavLink to="/dashboard/userProfile">Dashboard</NavLink>
         }
         {
-            user && isModerator && <NavLink to="/dashboard/userProfile">Moderator Dashboard</NavLink>
+            !isAdmin && isModerator && <NavLink to="/dashboard/userProfile">Dashboard</NavLink>
         }
         {
-            user && !isRole && <NavLink to="/dashboard/userProfile">User DashBoard</NavLink>
+            !isAdmin && !isModerator && user && <NavLink to="/dashboard/userProfile">DashBoard</NavLink>
         }
     </>
     return (
@@ -61,7 +62,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 {
-                        user && user?.email ? (<><img className='w-10 h-10 rounded-full' src={user?.photoURL} title={user?.displayName} alt="User picture!" /><button onClick={logOut} className='btn bg-teal-500 rounded-xl ml-1'>Log-Out</button> </>) : (<><Link to="/login" className='btn bg-teal-500 rounded-xl'>Login</Link> <Link to="/registration" className='btn bg-teal-500 rounded-lg ml-2'>Register</Link></>)
+                        user && user?.email ? (<><img className='w-10 h-10 rounded-full' src={user?.photoURL} title={user?.displayName} alt="User picture!" /><p className='ml-1'>{user?.displayName}</p><button onClick={logOut} className='btn bg-teal-500 rounded-xl ml-1'>Log-Out</button> </>) : (<><Link to="/login" className='btn bg-teal-500 rounded-xl'>Login</Link> <Link to="/registration" className='btn bg-teal-500 rounded-lg ml-2'>Register</Link></>)
                     }
                 </div>
             </div>

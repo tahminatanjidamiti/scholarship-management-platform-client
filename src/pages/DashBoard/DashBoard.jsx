@@ -10,11 +10,14 @@ import { Helmet } from "react-helmet-async";
 
 
 const DashBoard = () => {
+
     //TODO: get isAdmin value from the database
-    const { user } = useAuth();
+    const { user, loading } = useAuth();
     const email = user.email;
-    const [isAdmin] = useAdmin();
-    const [isModerator] = useModerator();
+    const [isAdmin, isAdminLoading] = useAdmin();
+    const [isModerator, isModeratorLoading] = useModerator();
+
+
     // Render admin-specific menu items
     const renderAdminMenu = () => (
         <>
@@ -115,26 +118,37 @@ const DashBoard = () => {
         </>
     );
 
+    if (loading || isAdminLoading || isModeratorLoading) {
+        return (
+            <div className="flex items-center justify-center min-h-screen">
+                <div className="text-center">
+                    <p className="text-teal-600 font-bold text-xl">Loading Dashboard...</p>
+                    <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full border-teal-500"></div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className='flex'>
             <Helmet>
                 <title>ScholarBridge | Dashboard</title>
             </Helmet>
-            {/* dashboard side bar */}
+           
+                 {/* dashboard side bar */}
             <div className='w-[180px] lg:w-64 min-h-screen bg-teal-300'>
-                <ul className="menu space-y-2">
-                    {isAdmin && renderAdminMenu()}
-                    {!isAdmin && isModerator && renderModeratorMenu()}
-                    {!isAdmin && !isModerator && user && renderUserMenu()}
-                </ul>
-            </div>
-            {/* dashboard content */}
-            <div className='flex-1 px-3 py-2'>
-                <h2 className="mt-6  w-11/12 mx-auto font-bold text-xl lg:text-4xl text-gray-100">Dashboard</h2>
-                <p className="text-teal-100 w-11/12 mx-auto font-bold">Take a look at the sidebar to simplify your experience!</p>
-                <Outlet></Outlet>
-            </div>
+            <ul className="menu space-y-2">
+                {isAdmin && renderAdminMenu()}
+                {!isAdmin && isModerator && renderModeratorMenu()}
+                {!isAdmin && !isModerator && user && renderUserMenu()}
+            </ul>
+        </div>
+        {/* dashboard content */}
+        <div className='flex-1 px-3 py-2'>
+            <h2 className="mt-6  w-11/12 mx-auto font-bold text-xl lg:text-4xl text-gray-100">Dashboard</h2>
+            <p className="text-teal-100 w-11/12 mx-auto font-bold">Take a look at the sidebar to simplify your experience!</p>
+            <Outlet></Outlet>
+        </div>
         </div>
     );
 };

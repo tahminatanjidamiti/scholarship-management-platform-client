@@ -15,7 +15,7 @@ const ManageScholarships = () => {
         queryKey: ["scholarships"],
         enabled: !loading,
         queryFn: async () => {
-            const res = await axiosSecure.get("/scholarships/manage");
+            const res = await axiosSecure.get("/scholarships-manage");
             return res.data;
         },
     });
