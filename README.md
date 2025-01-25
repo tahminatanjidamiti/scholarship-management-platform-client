@@ -4,7 +4,7 @@ Our is to provide a platform where students can search there suitable universiti
 
 
 # Live Link
-# []()
+# [https://my-twelfth-assignment-cl-e10c4.web.app/](https://my-twelfth-assignment-cl-e10c4.web.app/)
 
 ## key features 
 
@@ -17,6 +17,7 @@ Our is to provide a platform where students can search there suitable universiti
 - Payment Gateway.
 - Responsive Layout.
 - Dynamic User Role.
+- Axios Interceptors.
 - Dynamic Review Display.
 - Reusability and Scalability.
 
@@ -32,6 +33,7 @@ Our is to provide a platform where students can search there suitable universiti
 - framer-motion.
 - react toastify.
 - react recharts.
+- react-hook-form.
 - react stripe-js.
 - react headlessui.
 - react-silck silck-carousel.

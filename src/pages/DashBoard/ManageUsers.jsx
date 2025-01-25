@@ -21,7 +21,7 @@ const ManageUsers = () => {
             await axiosSecure.patch(`/users/${userId}`, { role: newRole });
             refetch();
         } catch (error) {
-            console.error("Failed to update user role:", error);
+            // console.error("Failed to update user role:", error);
         }
     };
 

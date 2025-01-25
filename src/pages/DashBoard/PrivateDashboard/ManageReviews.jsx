@@ -29,7 +29,7 @@ const ManageReviews = () => {
                 Swal.fire("Deleted!", "Review has been deleted.", "success");
             }
         } catch (error) {
-            console.error("Error deleting review:", error);
+            // console.error("Error deleting review:", error);
         }
     };
 

@@ -55,7 +55,7 @@ const CheckoutFrom = () => {
                     setUserId(res.data._id);
                 })
                 .catch((err) => {
-                    console.error('Failed to fetch user profile:', err);
+                    // console.error('Failed to fetch user profile:', err);
                 });
         }
     }, [user, axiosSecure]);
@@ -69,7 +69,7 @@ const CheckoutFrom = () => {
                     setHasPaid(res.data.hasPaid);
                 })
                 .catch((err) => {
-                    console.error('Failed to revalidate payment status:', err);
+                    // console.error('Failed to revalidate payment status:', err);
                 });
         }
     }, [userId, scholarshipId, axiosSecure]);
@@ -231,8 +231,8 @@ const CheckoutFrom = () => {
                     toast.error('Failed to upload photo.');
                 }
             } catch (err) {
-                toast.error('Error uploading photo.');
-                console.error(err);
+                // toast.error('Error uploading photo.');
+                // console.error(err);
             }
         } else {
             toast.error('Please upload a photo.');

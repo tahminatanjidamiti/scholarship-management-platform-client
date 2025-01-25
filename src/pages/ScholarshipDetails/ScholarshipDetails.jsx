@@ -25,7 +25,7 @@ const ScholarshipDetails = () => {
             .get(`reviews/${id}`)
             .then((response) => setReviews(response.data))
             .catch((error) => {
-                console.error("Error fetching reviews:", error);
+                // console.error("Error fetching reviews:", error);
             });
     }, [id, axiosSecure]);
 
