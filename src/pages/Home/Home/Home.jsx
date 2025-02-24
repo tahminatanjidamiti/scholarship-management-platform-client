@@ -5,6 +5,7 @@ import Guideline from '../Guideline';
 import OurBlog from './OurBlog';
 import ScholarshipFAQ from './ScholarshipFAQ';
 import { Helmet } from 'react-helmet-async';
+import BestQualities from '../BestQualities';
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
             <OurBlog></OurBlog>
             <ScholarshipFAQ></ScholarshipFAQ>
             <Guideline></Guideline>
+            <BestQualities></BestQualities>
         </div>
     );
 };

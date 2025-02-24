@@ -25,6 +25,7 @@ Our is to provide a platform where students can search there suitable universiti
 
 ## npm packages used
 
+- recharts.
 - react-icons.
 - sweetalert2.
 - react-helmet.
@@ -32,9 +33,12 @@ Our is to provide a platform where students can search there suitable universiti
 - react swiper.
 - framer-motion.
 - react toastify.
-- react recharts.
 - react-hook-form.
 - react stripe-js.
 - react headlessui.
+- react-tsparticles.
+- react-fast-marquee.
+- tsparticles-engine.
+- react-simple-typewriter.
 - react-silck silck-carousel.
 
