@@ -31,7 +31,7 @@ const AllScholarship = () => {
             <h1 className="text-center text-2xl font-bold mb-6">All Scholarships</h1>
 
             {/* Search and Filter Controls */}
-            <div className="flex gap-4 mb-6">
+            <div className="flex flex-col md:flex-row gap-4 mb-6">
                 <input
                     type="text"
                     placeholder="Search by name, university, or degree"
@@ -82,8 +82,9 @@ const AllScholarship = () => {
                     scholarships.map((scholarship) => (
                         <div
                             key={scholarship._id}
-                            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow flex flex-col h-full"
+                            className="rounded-lg shadow-md hover:shadow-lg transition-shadow flex flex-col h-full relative"
                         >
+                            <div className="absolute inset-0 animate-neon-glow -z-10"></div>
                             <img
                                 src={scholarship.universityImage}
                                 alt={`${scholarship.universityName} logo`}
