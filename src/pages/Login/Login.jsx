@@ -12,31 +12,42 @@ const Login = () => {
     const axiosPublic = useAxiosPublic();
     const { userLogin, setUser } = useContext(AuthContext);
     const [error, setError] = useState({});
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const googleProvider = new GoogleAuthProvider();
 
-    const handleGoogleLogin = async () => {
-            try {
-                const result = await signInWithPopup(auth, googleProvider);
-                const user = result.user;
-                setUser(user);
-                const role = 'user';
-        
-                const userInfo = { email: user?.email, name: user?.displayName, photo: user?.photoURL, role: role};
-                await axiosPublic.post('/users', userInfo);
-        
-                toast.success('🎉 Google Login Successful! 🎉');
-                navigate('/');
-            } catch (err) {
-                toast.error(`Google Login Failed: ${err.message}`);
-                setError({ ...error, login: err.code });
-            }
+    const fillCredentials = (role) => {
+        const credentials = {
+            admin: { email: 'admin@gmail.com', password: '@Admin' },
+            moderator: { email: 'moderator@gmail.com', password: '@Moderator' },
+            user: { email: 'lilly@gmail.com', password: '@1User' }
         };
+
+        setEmail(credentials[role].email);
+        setPassword(credentials[role].password);
+    };
+
+    const handleGoogleLogin = async () => {
+        try {
+            const result = await signInWithPopup(auth, googleProvider);
+            const user = result.user;
+            setUser(user);
+            const role = 'user';
+    
+            const userInfo = { email: user?.email, name: user?.displayName, photo: user?.photoURL, role: role };
+            await axiosPublic.post('/users', userInfo);
+    
+            toast.success('🎉 Google Login Successful! 🎉');
+            navigate('/');
+        } catch (err) {
+            toast.error(`Google Login Failed: ${err.message}`);
+            setError({ ...error, login: err.code });
+        }
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
 
         userLogin(email, password)
             .then((result) => {
@@ -69,13 +80,14 @@ const Login = () => {
                 >
                     Login to Your Account
                 </motion.h2>
-                <form
-                    onSubmit={handleSubmit}
-                    className="card-body space-y-6"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.6 }}
-                >
+
+                <div className="flex gap-2 mb-2 ml-2 md:ml-20">
+                    <button className="btn btn-info" onClick={() => fillCredentials('admin')}>Admin</button>
+                    <button className="btn btn-warning" onClick={() => fillCredentials('moderator')}>Moderator</button>
+                    <button className="btn btn-success" onClick={() => fillCredentials('user')}>User</button>
+                </div>
+
+                <form onSubmit={handleSubmit} className="card-body space-y-6">
                     <motion.div
                         className="form-control"
                         whileFocus={{ scale: 1.05 }}
@@ -89,6 +101,8 @@ const Login = () => {
                             name="email"
                             placeholder="Enter your email"
                             className="input input-bordered focus:ring-2 focus:ring-teal-500"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             required
                         />
                     </motion.div>
@@ -101,6 +115,8 @@ const Login = () => {
                             name="password"
                             placeholder="Enter your password"
                             className="input input-bordered focus:ring-2 focus:ring-teal-500"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                             required
                         />
                         {error.login && (
@@ -147,5 +163,6 @@ const Login = () => {
         </div>
     );
 };
+
 
 export default Login;
