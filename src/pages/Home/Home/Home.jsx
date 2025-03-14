@@ -6,6 +6,8 @@ import OurBlog from './OurBlog';
 import ScholarshipFAQ from './ScholarshipFAQ';
 import { Helmet } from 'react-helmet-async';
 import BestQualities from '../BestQualities';
+import UserInsights from '../UserInsights';
+
 
 const Home = () => {
     return (
@@ -17,6 +19,7 @@ const Home = () => {
             <TopScholarship></TopScholarship>
             <OurBlog></OurBlog>
             <ScholarshipFAQ></ScholarshipFAQ>
+            <UserInsights></UserInsights>
             <Guideline></Guideline>
             <BestQualities></BestQualities>
         </div>
