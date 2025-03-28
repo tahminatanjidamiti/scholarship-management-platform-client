@@ -26,8 +26,8 @@ const Navbar = ({ handleThemeToggle, isDark }) => {
         }
     </>
     return (
-        <div className='sticky top-0 z-50 backdrop-blur-sm bg-teal-400 bg-opacity-20 py-4'>
-            <div className="navbar bg-teal-300 rounded-lg w-11/12 mx-auto text-black">
+        <div className='sticky top-0 z-50 backdrop-blur-sm bg-sky-400 bg-opacity-20 pt-4 pb-2'>
+            <div className="navbar bg-sky-300 rounded-lg w-11/12 mx-auto text-black">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -62,11 +62,11 @@ const Navbar = ({ handleThemeToggle, isDark }) => {
                         </ul>
                     </div>
                     {
-                        user && user?.email ? (<><img className='w-10 h-10 rounded-full' src={user?.photoURL} title={user?.displayName} alt="User picture!" /><p className='ml-1'>{user?.displayName}</p><button onClick={logOut} className='btn bg-teal-500 rounded-xl ml-1 text-black'>Log-Out</button> </>) : (<><Link to="/login" className='btn bg-teal-500 rounded-xl text-black'>Login</Link> <Link to="/registration" className='btn bg-teal-500 rounded-lg ml-2 text-black'>Register</Link></>)
+                        user && user?.email ? (<><img className='w-10 h-10 rounded-full' src={user?.photoURL} title={user?.displayName} alt="User picture!" /><p className='ml-1'>{user?.displayName}</p><button onClick={logOut} className='btn bg-sky-500 rounded-xl ml-1 text-black hover:bg-sky-600'>Log-Out</button> </>) : (<><Link to="/login" className='btn bg-sky-500 rounded-xl text-black hover:bg-sky-600'>Login</Link> <Link to="/registration" className='btn bg-sky-500 rounded-lg ml-2 text-black hover:bg-sky-600'>Register</Link></>)
                     }
                 </div>
             </div>
-            <div className='flex justify-end w-11/12 mt-5'>
+            <div className='flex justify-end w-11/12 mt-2'>
                 <label className="flex cursor-pointer gap-2">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

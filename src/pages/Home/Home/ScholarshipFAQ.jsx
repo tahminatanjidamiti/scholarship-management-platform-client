@@ -6,12 +6,12 @@ import { motion } from "framer-motion";
 const ScholarshipFAQ = () => {
   
   const particlesInit = async () => {
-    console.log(tsParticles); // Check if engine loads properly
+    // console.log(tsParticles); // Check if engine loads properly
   };
 
 
   return (
-    <div className="relative w-11/12 mx-auto my-20">
+    <div className="relative w-11/12 mx-auto my-20" id="faq">
       {/* Particle Background */}
       <Particles
         id="tsparticles"
@@ -21,7 +21,7 @@ const ScholarshipFAQ = () => {
           background: { color: "transparent" },
           particles: {
             number: { value: 50 },
-            color: { value: "#0ff" }, // Neon blue
+            color: { value: "#0ff" }, // Neon sky
             shape: { type: "circle" },
             opacity: { value: 0.6 },
             size: { value: 4 },
@@ -51,7 +51,7 @@ const ScholarshipFAQ = () => {
             repeat: Infinity, 
             repeatType: 'loop',  // or 'reverse' to reverse the animation on each cycle
             repeatDelay: 5 }}
-        className="text-center text-4xl font-bold mb-4 text-teal-600"
+        className="text-center text-4xl font-bold mb-5 text-sky-600"
       >
         Scholarships FAQ!
       </motion.h1>
@@ -63,7 +63,7 @@ const ScholarshipFAQ = () => {
             repeat: Infinity, 
             repeatType: 'loop',  // or 'reverse' to reverse the animation on each cycle
             repeatDelay: 5  }}
-        className="mb-10 w-9/12 mx-auto text-center"
+        className="mb-10 w-8/12 mx-auto text-center"
       >
         Scholarship FAQs help clarify eligibility, application processes, deadlines, required documents, and tips for success, empowering students to make informed decisions and secure valuable financial support.
       </motion.p>
@@ -75,12 +75,12 @@ const ScholarshipFAQ = () => {
             repeat: Infinity, 
             repeatType: 'loop',  // or 'reverse' to reverse the animation on each cycle
             repeatDelay: 5  }}
-        className="hero bg-opacity-10 bg-black min-h-screen border border-teal-500 shadow-[4px_4px_15px_teal,-4px_-4px_15px_black] rounded-lg py-6"
+        className="hero bg-gradient-to-tl from-sky-300 via-sky-950 via-40% to-sky-300 to-90% border border-sky-500 shadow-[4px_4px_15px_sky,-4px_-4px_15px_black] rounded-lg py-6"
       >
         <div className="hero-content px-0 md:px-4 flex-col lg:flex-row">
           <motion.img
             src="https://i.ibb.co/6NpHwFY/th-4.jpg"
-            className="max-w-sm rounded-lg border-2 border-teal-600 shadow-lg"
+            className="max-w-sm rounded-lg border-2 border-sky-950 shadow-lg"
             alt="Scholarship"
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -119,7 +119,7 @@ const ScholarshipFAQ = () => {
                 whileHover={{ scale: 1.03 }}
               >
                 <input type="radio" name="faq-accordion" defaultChecked={index === 0} />
-                <div className="collapse-title text-xl font-medium text-cyan-400">
+                <div className="collapse-title text-xl font-medium text-sky-400">
                   {faq.title}
                 </div>
                 <div className="collapse-content text-white">{faq.content}</div>

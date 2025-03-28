@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 
 const OurBlog = () => {
     return (
-        <div className='w-11/12 mx-auto my-10'>
+        <div className='w-11/12 mx-auto my-10' id='blog'>
             <h1 className="text-center text-4xl font-bold mb-5">Explore Our Blogs</h1>
-            <p className='mb-8 w-9/12 mx-auto text-center'>
+            <p className='mb-10 w-9/12 mx-auto text-center'>
                 Learn our insightful blogs packed with expert advice, practical tips, and inspiring stories 
                 to empower your journey toward success and personal growth.
             </p>
@@ -60,9 +60,9 @@ const BlogCard = ({ imgSrc, title, description, date, widthClass }) => {
                 className="absolute inset-0 z-0"
                 animate={{
                     background: [
-                        "linear-gradient(45deg, #ff8a00, #e52e71)",
+                        "linear-gradient(45deg, #082f49, #00c6ff)",
                         "linear-gradient(45deg, #00c6ff, #0072ff)",
-                        "linear-gradient(45deg, #ff8a00, #e52e71)"
+                        "linear-gradient(45deg, #082f49, #00c6ff)"
                     ],
                 }}
                 transition={{

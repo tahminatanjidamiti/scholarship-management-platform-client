@@ -15,6 +15,7 @@ const AllScholarship = () => {
     const { scholarships, total, totalPages, currentPage, refetch } = useScholarship(filters);
 
 
+
     useEffect(() => {
         refetch();
     }, [filters, refetch]);
@@ -28,7 +29,7 @@ const AllScholarship = () => {
             <Helmet>
                 <title>ScholarBridge | All Scholarship</title>
             </Helmet>
-            <h1 className="text-center text-2xl font-bold mb-6">All Scholarships</h1>
+            <h1 className="text-center text-4xl font-bold mb-6">All Scholarships</h1>
 
             {/* Search and Filter Controls */}
             <div className="flex flex-col md:flex-row gap-4 mb-6">
@@ -77,7 +78,7 @@ const AllScholarship = () => {
             </div>
 
             {/* Scholarships Grid */}
-            <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            <div className="w-10/12 mx-auto grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
                 {scholarships.length > 0 ? (
                     scholarships.map((scholarship) => (
                         <div
@@ -126,13 +127,8 @@ const AllScholarship = () => {
                         </div>
                     ))
                 ) : (
-                    <div className="text-center text-gray-500 col-span-full">
-                        <img
-                            src="/no-scholarships.png"
-                            alt="No Scholarships"
-                            className="w-1/2 mx-auto mb-4"
-                        />
-                        <p>No scholarships available. Try adjusting your filters.</p>
+                    <div className="self-center">
+                        <span className="loading loading-spinner text-info"></span>
                     </div>
                 )}
             </div>

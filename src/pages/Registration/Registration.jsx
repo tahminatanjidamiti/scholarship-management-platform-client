@@ -85,7 +85,7 @@ const Registration = () => {
     }
 
     return (
-        <div className="min-h-screen flex justify-center items-center bg-gradient-to-t from-sky-500 from-20% via-lime-500 via-50% to-teal-500 p-10">
+        <div className="min-h-screen flex justify-center items-center bg-gradient-to-bl from-sky-300 via-sky-950 via-40% to-sky-400 to-90% p-10">
             <Helmet>
                 <title>ScholarBridge | Register</title>
             </Helmet>
@@ -116,7 +116,7 @@ const Registration = () => {
                             type="text"
                             name="name"
                             placeholder="Your Name"
-                            className="input input-bordered focus:ring-2 focus:ring-teal-500"
+                            className="input input-bordered focus:ring-2 focus:ring-sky-500"
                             required
                         />
                     </motion.div>
@@ -129,7 +129,7 @@ const Registration = () => {
                             type="text"
                             name="photo"
                             placeholder="Your Photo URL"
-                            className="input input-bordered focus:ring-2 focus:ring-teal-500"
+                            className="input input-bordered focus:ring-2 focus:ring-sky-500"
                             required
                         />
                     </motion.div>
@@ -142,7 +142,7 @@ const Registration = () => {
                             type="email"
                             name="email"
                             placeholder="Your Email"
-                            className="input input-bordered focus:ring-2 focus:ring-teal-500"
+                            className="input input-bordered focus:ring-2 focus:ring-sky-500"
                             required
                         />
                     </motion.div>
@@ -155,7 +155,7 @@ const Registration = () => {
                             type="password"
                             name="password"
                             placeholder="Your Password"
-                            className="input input-bordered focus:ring-2 focus:ring-teal-500"
+                            className="input input-bordered focus:ring-2 focus:ring-sky-500"
                             required
                         />
                         <label className="label">
@@ -169,7 +169,7 @@ const Registration = () => {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="btn bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold rounded-lg shadow-lg"
+                            className="btn bg-gradient-to-r from-sky-300 via-sky-950 via-40% to-sky-300 to-90% text-white font-bold rounded-lg shadow-lg"
                         >
                             Register
                         </motion.button>
@@ -192,7 +192,7 @@ const Registration = () => {
                     transition={{ delay: 0.8 }}
                 >
                     Already have an account?{' '}
-                    <Link className="text-teal-500 underline" to="/login">
+                    <Link className="text-sky-500 underline" to="/login">
                         Login
                     </Link>
                 </motion.p>

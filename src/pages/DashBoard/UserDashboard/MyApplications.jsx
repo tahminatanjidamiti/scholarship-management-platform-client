@@ -217,7 +217,7 @@ const MyApplications = () => {
                                         className={`px-2 py-1 rounded ${application.status === 'Pending'
                                             ? 'bg-yellow-100 text-yellow-600'
                                             : application.status === 'Processing'
-                                                ? 'bg-blue-100 text-blue-600'
+                                                ? 'bg-sky-100 text-sky-600'
                                                 : application.status === 'Completed'
                                                     ? 'bg-green-100 text-green-600'
                                                     : 'bg-red-100 text-red-600'
@@ -232,7 +232,7 @@ const MyApplications = () => {
                                         <div tabIndex={0} role="button" className="btn m-2">Buttons</div>
                                         <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-32 p-2 shadow space-y-1">
                                             <Link to={`/scholarshipDetails/${application._id}`}>
-                                                <button className="bg-blue-500 text-white px-3 py-1 rounded-md w-full mx-auto text-2xl">
+                                                <button className="bg-sky-500 text-white px-3 py-1 rounded-md w-full mx-auto text-2xl">
                                                     <TbListDetails className='mx-auto'></TbListDetails>
                                                 </button>
                                             </Link>
@@ -334,7 +334,7 @@ const MyApplications = () => {
                                     <button
                                         type="button"
                                         onClick={handleEditSave}
-                                        className="bg-blue-500 text-white px-4 py-2 rounded"
+                                        className="bg-sky-500 text-white px-4 py-2 rounded"
                                     >
                                         Save
                                     </button>
@@ -379,7 +379,7 @@ const MyApplications = () => {
                                     <button
                                         type="button"
                                         onClick={handleReviewSubmit}
-                                        className="bg-blue-500 text-white px-4 py-2 rounded"
+                                        className="bg-sky-500 text-white px-4 py-2 rounded"
                                     >
                                         Submit
                                     </button>

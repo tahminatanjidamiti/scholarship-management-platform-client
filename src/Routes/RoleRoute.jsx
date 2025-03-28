@@ -7,7 +7,7 @@ const RoleRoute = ({ children }) => {
     const {user, loading} = useAuth();
     const [isRole, isRoleLoading] = useRole();
     if (loading || isRoleLoading) {
-        return <span className="loading loading-bars loading-lg"></span>
+        return <span className="loading loading-spinner text-info"></span>
     }
     if (user && isRole) {
         return children;

@@ -114,7 +114,7 @@ const ManageApplications = () => {
                             </td>
                             <td className="flex flex-col px-1 py-2 space-y-2">
                                 <button
-                                    className="bg-blue-500 text-white px-1 py-1 rounded"
+                                    className="bg-sky-500 text-white px-1 py-1 rounded"
                                     onClick={() => setDetailsModal(app)}
                                 >
                                     Details

@@ -42,7 +42,7 @@ const ManageReviews = () => {
                         <img src={review.userImage} alt={review.userName} className="w-20 h-20 object-cover" />
                         <div className="p-4">
                             <h3 className="font-semibold text-lg">{review.universityName}</h3>
-                            <h3 className="font-semibold text-teal-600">{review.userName}</h3>
+                            <h3 className="font-semibold text-sky-600">{review.userName}</h3>
                             <p className="text-sm text-gray-500">{review.subjectCategory}</p>
                             <p className="font-bold text-amber-500">{review.comment}</p>
                             <p className="text-sm text-gray-400">{review.reviewDate}</p>

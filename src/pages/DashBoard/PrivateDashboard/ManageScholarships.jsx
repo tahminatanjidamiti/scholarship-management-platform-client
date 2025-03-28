@@ -129,7 +129,7 @@ const ManageScholarships = () => {
                             </td>
                             <td className="border flex flex-col md:flex-row border-gray-300 px-1 space-y-2 md:space-x-1 lg:items-center py-2">
                                 <Link to={`/scholarshipDetails/${scholarship._id}`}>
-                                    <button className="bg-blue-500 text-white ml-2 px-1 py-1 rounded mt-3">
+                                    <button className="bg-sky-500 text-white ml-2 px-1 py-1 rounded mt-3">
                                         <TbListDetails className="text-2xl mx-auto" />
                                     </button>
                                 </Link>

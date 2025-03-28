@@ -3,7 +3,7 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../Hooks/useAuth';
 import useAdmin from '../../Hooks/useAdmin';
-import {  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import useModerator from '../../Hooks/useModerator';
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
@@ -45,15 +45,15 @@ const UserProfile = () => {
             return res.data;
         }
     });
-   
+
     const barChartData = chartData.length
-    ? [
-          { category: 'All Users', value: chartData[0] },
-          { category: 'Scholarships', value: chartData[1] },
-          { category: 'Applications', value: chartData[2] },
-          { category: 'Reviews', value: chartData[3] },
-      ]
-    : [];
+        ? [
+            { category: 'All Users', value: chartData[0] },
+            { category: 'Scholarships', value: chartData[1] },
+            { category: 'Applications', value: chartData[2] },
+            { category: 'Reviews', value: chartData[3] },
+        ]
+        : [];
     return (
         <div>
             <div className="w-11/12 mx-auto p-4 bg-green-200 rounded-lg shadow-lg mt-10">
@@ -62,7 +62,7 @@ const UserProfile = () => {
                     <img
                         src={users.photo}
                         alt="User Profile"
-                        className="w-16 h-16 rounded-full border-2 border-blue-500"
+                        className="w-16 h-16 rounded-full border-2 border-sky-500"
                     />
                     <div className="flex flex-col mt-4 md:mt-0">
                         <h2 className="text-2xl font-semibold text-gray-900">{users.name}</h2>
@@ -72,7 +72,7 @@ const UserProfile = () => {
 
                 {/* Additional user information */}
                 <div className="mt-4">
-                    <div className="bg-teal-200 p-2 md:p-4 rounded-lg shadow-sm">
+                    <div className="bg-sky-200 p-2 md:p-4 rounded-lg shadow-sm">
                         <h3 className="text-lg font-semibold text-gray-800">User Details:</h3>
                         <div className="mt-2">
                             <p className="text-gray-600"><strong>Email:</strong> {users.email}.</p>
@@ -84,35 +84,37 @@ const UserProfile = () => {
             {
                 isAdmin && users.role === 'admin' && (
                     <div className="mt-10 bg-white shadow-lg rounded-lg">
-                    {barChartData.length > 0 ? (
-                        <div style={{ width: '100%', height: 300 }}>
-                        <ResponsiveContainer>
-                        <BarChart
-                                data={barChartData}
-                                margin={{ top: 20, right: 0, left: 0, bottom: 5 }}
-                                className="w-full max-w-[600px] md:max-w-[768px] lg:max-w-[1024px] mx-auto"
-                            >
-                                <CartesianGrid strokeDasharray="3 3" />
-                                <XAxis dataKey="category" />
-                                <YAxis />
-                                <Tooltip />
-                                <Bar
-                                    dataKey="value"
-                                    fill="#8884d8"
-                                    shape={<TriangleBar />}
-                                    label={{ position: 'top' }}
-                                >
-                                    {barChartData.map((entry, index) => (
-                                        <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
-                                    ))}
-                                </Bar>
-                            </BarChart>
-                        </ResponsiveContainer>
-                        </div>
-                    ) : (
-                        <p className="text-center text-gray-500">No data available to display.</p>
-                    )}
-                </div>
+                        {barChartData.length > 0 ? (
+                            <div style={{ width: '100%', height: 300 }}>
+                                <ResponsiveContainer>
+                                    <BarChart
+                                        data={barChartData}
+                                        margin={{ top: 20, right: 0, left: 0, bottom: 5 }}
+                                        className="w-full max-w-[600px] md:max-w-[768px] lg:max-w-[1024px] mx-auto"
+                                    >
+                                        <CartesianGrid strokeDasharray="3 3" />
+                                        <XAxis dataKey="category" />
+                                        <YAxis />
+                                        <Tooltip />
+                                        <Bar
+                                            dataKey="value"
+                                            fill="#8884d8"
+                                            shape={<TriangleBar />}
+                                            label={{ position: 'top' }}
+                                        >
+                                            {barChartData.map((entry, index) => (
+                                                <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+                                            ))}
+                                        </Bar>
+                                    </BarChart>
+                                </ResponsiveContainer>
+                            </div>
+                        ) : (
+                            <div className="self-center">
+                                <span className="loading loading-spinner text-info"></span>
+                            </div>
+                        )}
+                    </div>
                 )
             }
         </div>

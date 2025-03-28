@@ -4,8 +4,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Banner = () => {
     return (
-        <div className='my-10'>
-            <div style={{ width: '100%', maxWidth: '1200px', margin: '0 auto' }}>
+        <div className='mt-10 mb-16'>
+            <div style={{ width: '80%', maxWidth: '1024px', margin: '0 auto' }}>
                 <Carousel 
                     showArrows={true} 
                     autoPlay={true} 

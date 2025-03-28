@@ -2,17 +2,17 @@ import { IoIosArrowDropdownCircle } from "react-icons/io";
 
 const Footer = () => {
     return (
-        <div className="bg-teal-400 bg-opacity-50 py-5">
-            <footer className="footer text-gray-700 px-1 md:px-10">
+        <div className="bg-gradient-to-br from-sky-300 via-sky-800 to-sky-700 py-5">
+            <footer className="footer px-1 md:px-10 text-black">
                 <aside className="pl-2">
-                    <p className="text-4xl italic text-teal-600 font-bold">ScholarBridge</p>
-                    <a className="link link-hover">About us</a>
-                    <a className="link link-hover">Privacy Policy</a>
-                    <a className="link link-hover">Work with Us</a>
-                    <a className="link link-hover">Cookies</a>
+                    <p className="text-4xl italic text-sky-600 font-bold">ScholarBridge</p>
+                    <a href="#faq" className="link link-hover">FAQ</a>
+                    <a href="#blog" className="link link-hover">Blogs</a>
+                    <a href="#review" className="link link-hover">Reviews</a>
+                    <a href="#guideline" className="link link-hover">Guideline</a>
                     <div className="flex items-center justify-center gap-2">
                     <h6 className="footer-title">Follow Us!</h6>
-                    <p className="w-4 h-4 bg-teal-600 inline-flex rounded-full text-white justify-center items-center"><IoIosArrowDropdownCircle /></p>
+                    <p className="w-4 h-4 bg-sky-600 inline-flex rounded-full text-white justify-center items-center"><IoIosArrowDropdownCircle /></p>
                     </div>
                     <div className="grid grid-flow-col gap-4">
                         <a>
@@ -38,13 +38,13 @@ const Footer = () => {
                 <h6 className="footer-title">Connected With Us!</h6>
                     <div><p className='font-bold text-lg'>Get the latest news and offers</p> <h2 className='font-bold text-xl md:text-3xl'>Subscribe to our newsletter</h2></div>
                     <div className=" mt-2 join border border-purple-950">
-                    <input className="input pr-0 md:pr-4 input-bordered join-item h-[60px]" placeholder="Email" />
-                    <button className="btn h-[60px] join-item bg-teal-500 hover:bg-teal-800 hover:text-white">Subscribe</button>
+                    <input className="input pr-0 md:pr-4 text-black input-bordered join-item h-[60px]" placeholder="Email" />
+                    <button className="btn h-[60px] join-item bg-sky-500 text-black hover:bg-sky-800 hover:text-white">Subscribe</button>
                 </div>
                 </nav>
             </footer>
             <div className="w-full mx-auto text-center pt-6">
-                <p className="text-sm text-gray-600">©  {new Date().getFullYear()} ScholarBridge - All rights reserved.</p>
+                <p className="text-sm text-black">©  {new Date().getFullYear()} ScholarBridge - All rights reserved.</p>
             </div>
         </div>
     );

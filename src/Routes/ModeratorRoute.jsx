@@ -6,7 +6,7 @@ const ModeratorRoute = () => {
     const {user, loading} = useAuth();
     const [isModerator, isModeratorLoading] = useModerator();
     if (loading || isModeratorLoading) {
-        return <span className="loading loading-bars loading-lg"></span>
+        return <span className="loading loading-spinner text-info"></span>
     }
     if (user && isModerator) {
         return children;

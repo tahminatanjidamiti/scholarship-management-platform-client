@@ -5,12 +5,12 @@ import { Helmet } from 'react-helmet-async';
 
 const ErrorPage = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-t from-indigo-950 from-20% via-sky-500 via-50% to-teal-950">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-t from-indigo-950 from-20% via-sky-500 via-50% to-sky-950">
       <Helmet>
         <title>ScholarBridge | Error Page</title>
       </Helmet>
       <motion.h1
-        className="text-6xl font-bold text-teal-950"
+        className="text-6xl font-bold text-sky-950"
         initial={{ scale: 0.5, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
@@ -35,7 +35,7 @@ const ErrorPage = () => {
       >
         <Link
           to="/"
-          className="px-6 py-3 bg-teal-900 text-white rounded-lg shadow-md hover:bg-teal-950 focus:outline-none"
+          className="px-6 py-3 bg-sky-900 text-white rounded-lg shadow-md hover:bg-sky-950 focus:outline-none"
         >
           Back to Home
         </Link>

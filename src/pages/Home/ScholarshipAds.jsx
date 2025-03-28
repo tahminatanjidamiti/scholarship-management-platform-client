@@ -21,7 +21,7 @@ const ScholarshipAds = () => {
   
     return (
       <div className="flex flex-col items-center justify-center h-screen relative w-11/12 mx-auto" style={{
-        backgroundImage: "url(https://i.ibb.co.com/qLw9RPSX/DALL-E-2025-03-13-03-47-45-A-digital-abstract-network-visualization-with-interconnected-nodes-and-li.webp)",
+        backgroundImage: "url(https://i.ibb.co.com/JWrXbFsM/Screenshot-110.png)",
       }}>
         <div className="absolute inset-0 bg-black animate-neon-glow -z-10"></div>
         {currentImage < images.length ? (
@@ -37,7 +37,7 @@ const ScholarshipAds = () => {
           />
         ) : (
           <motion.h2
-            className="text-3xl font-bold mt-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-500 from-35% via-sky-500 to-40% to-black"
+            className="text-5xl font-bold mt-4 text-white"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}

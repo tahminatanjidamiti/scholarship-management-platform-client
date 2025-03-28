@@ -11,10 +11,10 @@ body {
 .active{
   font-size: larger;
   font-weight: bold; 
-  color: teal; 
+  color: black; 
   text-shadow: 2px 1px 4px gray; 
   transition: all 0.3s ease;
-  border-bottom: 2px solid teal;
+  border-bottom: 2px solid sky;
 }
 
 

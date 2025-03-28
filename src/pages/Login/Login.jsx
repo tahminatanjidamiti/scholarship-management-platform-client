@@ -62,7 +62,7 @@ const Login = () => {
     };
 
     return (
-        <div className="min-h-screen flex justify-center items-center bg-gradient-to-t from-sky-500 from-20% via-lime-500 via-50% to-teal-500 p-10">
+        <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-sky-300 via-sky-950 via-40% to-sky-300 to-90% p-10">
             <Helmet>
                 <title>ScholarBridge | Login</title>
             </Helmet>
@@ -82,9 +82,9 @@ const Login = () => {
                 </motion.h2>
 
                 <div className="flex gap-2 mb-2 ml-2 md:ml-20">
-                    <button className="btn btn-info" onClick={() => fillCredentials('admin')}>Admin</button>
-                    <button className="btn btn-warning" onClick={() => fillCredentials('moderator')}>Moderator</button>
-                    <button className="btn btn-success" onClick={() => fillCredentials('user')}>User</button>
+                    <button className="btn bg-sky-400 text-black hover:bg-sky-500" onClick={() => fillCredentials('admin')}>Admin</button>
+                    <button className="btn bg-sky-500 text-black hover:bg-sky-600" onClick={() => fillCredentials('moderator')}>Moderator</button>
+                    <button className="btn bg-sky-300 text-black hover:bg-sky-400" onClick={() => fillCredentials('user')}>User</button>
                 </div>
 
                 <form onSubmit={handleSubmit} className="card-body space-y-6">
@@ -100,7 +100,7 @@ const Login = () => {
                             type="email"
                             name="email"
                             placeholder="Enter your email"
-                            className="input input-bordered focus:ring-2 focus:ring-teal-500"
+                            className="input input-bordered focus:ring-2 focus:ring-sky-500"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
@@ -114,7 +114,7 @@ const Login = () => {
                             type="password"
                             name="password"
                             placeholder="Enter your password"
-                            className="input input-bordered focus:ring-2 focus:ring-teal-500"
+                            className="input input-bordered focus:ring-2 focus:ring-sky-500"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
@@ -134,7 +134,7 @@ const Login = () => {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="btn bg-gradient-to-r from-green-500 to-teal-500 text-white font-bold rounded-lg shadow-lg"
+                            className="btn bg-gradient-to-r from-sky-300 via-sky-950 via-40% to-sky-300 to-90% text-white font-bold rounded-lg shadow-lg"
                         >
                             Login
                         </motion.button>
@@ -155,7 +155,7 @@ const Login = () => {
                     transition={{ delay: 0.8 }}
                 >
                     Don’t Have An Account?{" "}
-                    <Link className="text-teal-500 underline" to="/registration">
+                    <Link className="text-sky-500 underline" to="/registration">
                         Register Now
                     </Link>
                 </motion.p>

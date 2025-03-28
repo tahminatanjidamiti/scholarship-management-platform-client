@@ -112,7 +112,7 @@ const ScholarshipDetails = () => {
                         {reviews.map((review) => (
                             <div
                                 key={review._id}
-                                className="bg-gradient-to-r from-teal-500 via-pink-300 to-purple-300 p-6 rounded shadow-lg text-center"
+                                className="bg-gradient-to-r from-sky-500 via-pink-300 to-purple-300 p-6 rounded shadow-lg text-center"
                             >
                                 {review.userImage && (
                                     <img
@@ -125,10 +125,10 @@ const ScholarshipDetails = () => {
                                     Rating: {review.rating} / 5
                                 </p>
                                 <h3 className="text-lg font-semibold">{review.userName}</h3>
-                                <p className="text-sm text-teal-500">
+                                <p className="text-sm text-sky-500">
                                     {review?.reviewDate}
                                 </p>
-                                <p className="italic text-xl text-blue">"{review?.comment}"</p>
+                                <p className="italic text-xl text-sky">"{review?.comment}"</p>
                             </div>
                         ))}
                     </Slider>

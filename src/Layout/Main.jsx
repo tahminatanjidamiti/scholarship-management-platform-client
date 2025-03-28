@@ -31,7 +31,7 @@ const Main = () => {
     return (
         <div>
             <Navbar handleThemeToggle={handleThemeToggle} isDark={isDark}></Navbar>
-            <div className='min-h-[calc(100vh-490px)]'>
+            <div className='min-h-[calc(100vh-470px)]'>
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>
